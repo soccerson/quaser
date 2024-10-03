@@ -15,6 +15,10 @@ const routes = [
         path:"create_match",
         component: () => import("pages/matchcreate.vue"),
       },
+      {
+        path: "create-practice-menu",
+        component: () => import("pages/CreatePracticeMenu.vue"),
+      }
     ],
   },
 
