@@ -124,8 +124,24 @@
       <div>
         <h5 class="step-title">STEP 3 予算と支払い方法を決めましょう</h5>
         <hr class="bold-line" />
+        <!-- 予算セクション -->
+        <q-card flat bordered class="q-pa-md q-mt-md">
+          <q-card-section>
+            <div class="text-h6">予算<span class="required"><span class="red-star">※</span>必須</span></div>
+            <q-input
+              v-model="budget"
+              label="予算を入力してください"
+              type="number"
+              outlined
+              dense
+              placeholder="予算を入力してください"
+            />
+          </q-card-section>
+        </q-card>
+      </div>
+  
         <!-- 支払い方式セクション -->
-        <q-card flat bordered class="q-pa-md">
+        <q-card flat bordered class="q-pa-md q-mt-md">
           <q-card-section>
             <div class="text-h6">
               支払い方式<span class="required"><span class="red-star">※</span>必須</span>
@@ -143,30 +159,7 @@
             </div>
           </q-card-section>
         </q-card>
-                <!-- 予算セクション -->
-        <q-card flat bordered class="q-pa-md q-mt-md">
-          <q-card-section>
-            <div class="text-h6">予算<span class="required"><span class="red-star">※</span>必須</span></div>
-            <q-option-group
-              v-model="budget"
-              label="予算を入力してください"
-              type="radio"
-              inline
-              class="q-mt-md"
-            />
-            <div v-if="budgetSelection === 'specify'" class="q-mt-sm">
-              <q-select
-                v-model="budgetRange"
-                :options="budgetRanges"
-                label="予算の範囲を選択"
-                outlined
-                dense
-              />
-            </div>
-          </q-card-section>
-        </q-card>
-      </div>
-  
+                
         
       <!-- STEP 4 -->
       <div>
@@ -220,8 +213,8 @@ export default {
         { label: '複数名', value: 'multiple' }
       ],
       workLocation: "", // 勤務地の入力内容
-      budget: "", // 予算の入力内容
-      paymentMethod: "", // 支払い方法の選択肢
+      budget:0 , // 予算の入力内容
+      paymentType: "", // 支払い方法の選択肢
       deadline: "", // 期間の入力内容
       benefits: "", // 待遇の入力内容
       // 支払い方法の選択肢
@@ -229,18 +222,6 @@ export default {
         { label: "クレジットカード", value: "credit" },
         { label: "銀行振込", value: "bank" },
         { label: "現金払い", value: "cash" }
-      ],
-      budgetSelection: '', // 選択した予算
-      budgetOptions: [     // 予算の選択肢
-        { label: '10万円以下', value: 'under_100000' },
-        { label: '10万円〜20万円', value: '100000_200000' },
-        { label: '20万円以上', value: 'over_200000' },
-        { label: '指定する', value: 'specify' }
-      ],
-      budgetRanges: [      // 予算の範囲
-        { label: '10万円〜15万円', value: '100000_150000' },
-        { label: '15万円〜20万円', value: '150000_200000' },
-        { label: '20万円以上', value: 'over_200000' }
       ],
     };
   },
