@@ -8,7 +8,7 @@
             <q-toolbar>
               <q-toolbar-title class="app-name">
                 <!-- <img src="@/assets/logo.png" alt="Logo" class="logo" /> -->
-                サカいく
+                サカいく2
               </q-toolbar-title>
               <RouterButton to="/login" label="すべての仕事" />
               <RouterButton to="/contact" label="お問い合わせ" />
