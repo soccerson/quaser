@@ -32,7 +32,7 @@
                 <q-btn flat to="/create_match" label="対戦探し" />
                 <RouterButton to="/create-recruitment" label="募集作成" />
                 <q-btn flat to="/" label="求人依頼" />
-                <q-btn flat label="メッセージ" />
+                <q-btn to="create-practice-menu" flat label="練習メニュー作成" />
               </div>
               <div class="right-label">
                 <q-btn flat icon="swap_horiz" label="ワーカーに切り替える" />
