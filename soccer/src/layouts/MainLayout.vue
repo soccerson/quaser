@@ -29,9 +29,9 @@
             <q-toolbar>
               <div class="left-labels">
                 <q-btn flat label="マイページ" />
-                <q-btn flat label="対戦探し" />
+                <q-btn flat to="/create_match" label="対戦探し" />
                 <RouterButton to="/create-recruitment" label="募集作成" />
-                <q-btn flat label="求人依頼" />
+                <q-btn flat to="/" label="求人依頼" />
                 <q-btn flat label="メッセージ" />
               </div>
               <div class="right-label">
