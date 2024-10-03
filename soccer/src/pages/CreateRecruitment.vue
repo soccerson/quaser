@@ -209,33 +209,37 @@
 
     <div>
       <!-- 確認ボタン -->
-      <q-btn
-        label="確認"
-        color="primary"
-        @click="handleConfirm"
-        class="q-my-md"
-      />
+      <q-btn label="確認" color="primary" @click="goToConfirmationPage" />
     </div>
   </q-page>
 </template>
 
 <script>
 export default {
-  name: "ConfirmButton",
   data() {
     return {
-      jobDescription: "", // 業務内容の入力内容を保持
-      workLocation: "", // 勤務地の入力内容
-      budget: "", // 予算の入力内容
-      paymentMethod: "", // 支払い方法の入力内容
-      deadline: "", // 期限の入力内容
-      benefits: "", // 待遇の入力内容
+      newJobTitle: "",
+      newJobFormat: "",
+      jobFormats: ["プロジェクト", "コンペ", "タスク"],
     };
   },
   methods: {
-    // 確認ボタンがクリックされたときの処理
-    handleConfirm() {
-      alert("確認しました！");
+    goToConfirmationPage() {
+      if (this.newJobTitle && this.newJobFormat) {
+        // 確認ページにデータを渡して遷移
+        this.$router.push({
+          path: "/confirm",
+          query: {
+            title: this.newJobTitle,
+            format: this.newJobFormat,
+          },
+        });
+      } else {
+        this.$q.notify({
+          type: "negative",
+          message: "すべてのフィールドを入力してください",
+        });
+      }
     },
   },
 };
