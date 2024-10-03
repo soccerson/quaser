@@ -8,7 +8,7 @@ export default{
     name: "IndexPage",
     data(){
         return{
-            massage: "Hello, this is the index page!!!!!!!!!!!!!!!!!!!!",
+            massage: "Hello, this is the index page!!!!!!!!!!!!!!!!!",
         }
     }
 };
