@@ -1,19 +1,18 @@
 <template>
   <div>
-    <!-- ページの内容をここに記述 -->
-    <h1>Hello World!</h1>
+    <h1>Welcome to Index Page</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage',
+  name: "IndexPage",
   data() {
     return {
-      message: 'Welcome to Index Page'
-    }
-  }
-}
+      message: "Hello, this is the index page!",
+    };
+  },
+};
 </script>
 
 <style scoped>
