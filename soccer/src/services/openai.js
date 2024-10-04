@@ -22,3 +22,4 @@ export async function sendMessage(message) {
     console.error('Error calling OpenAI API:', error);
     throw error;
   }
+}

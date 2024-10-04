@@ -38,12 +38,17 @@
       </table>
     </div>
     <div id="map"></div>
+
     <!----- 表の表示 ----->
     <div>
       <table>
         <tr v-for="item in items" :key="item.id">
-          <td>{{ item.column1 }}</td>
-          <td>{{ item.column2 }}</td>
+          <td>{{ item.学校名 }}</td>
+          <td>{{ item.場所 }}</td>
+          <td>{{ item.大会順位 }}</td>
+          <td>{{ item.勝率 }}</td>
+          <td>{{ item.失点率 }}</td>
+          <td>{{ item.得点率 }}</td>
         </tr>
       </table>
     </div>
@@ -54,7 +59,8 @@
 <script>
 import { ref } from 'vue';
 import { sendMessage } from 'src/services/openai';
-import 
+import axios from 'axios';
+
 export default {
   name: "SimpleMarkerMap",
   
@@ -93,21 +99,36 @@ export default {
       locations:[
         {schoolName: "A学校", schoolAdress:"A市", lat: 35.6895, lng: 139.6917},
         {schoolName: "B学校", schoolAdress:"B市", lat: 34.0522, lng: -118.2437}
-      ]
+      ],
+      
+      items: []
+
     };
   },
-
-  //google mapの表示
   mounted() {
     this.initMap();
+    console.log('using port 9001');
+    axios.request({
+      method: 'get',
+      url: '/api/data',
+      port: 9001,
+    })
+    .then(response => {
+      this.items = response.data.data;
+    })
+    .catch(error => {
+      console.error(error);
+    });
   },
+  //google mapの表示
   methods: {
     initMap() {
       const map = new google.maps.Map(document.getElementById("map"), {
         center: { lat: 40.12150192260742, lng: -100.45039367675781 },
         zoom: 4,
         mapId: "DEMO_MAP_ID",
-      });
+      }
+  );
 
         // Add markers
         this.locations.forEach(location => {
@@ -119,6 +140,7 @@ export default {
         })
       });
     },
+
   }
 };
 </script>
