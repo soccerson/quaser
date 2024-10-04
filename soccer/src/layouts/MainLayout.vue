@@ -122,11 +122,12 @@ export default {
   height: 50px;
   color: #198dda;
   font-size: 40px;
-  align-items: center;
+  align-items: middle;
 }
 .custom-header {
   background-color: #ffffff; /* ヘッダーの背景色 */
   color: #000; /* テキスト色 */
+  height: 50px;
 }
 
 .second-toolbar {
