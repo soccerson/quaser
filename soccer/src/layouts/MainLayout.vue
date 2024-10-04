@@ -121,7 +121,7 @@ export default {
   margin-left: 40px;
   height: 50px;
   color: #198dda;
-  font-size: large;
+  font-size: 40px;
 }
 .custom-header {
   background-color: #ffffff; /* ヘッダーの背景色 */
