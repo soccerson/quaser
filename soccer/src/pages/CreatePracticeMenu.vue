@@ -1,5 +1,8 @@
 <template>
   <q-page padding>
+    <h4>練習メニューを自動作成</h4>
+    <h5 class="step-title">行いたい練習メニューを選択してください</h5>
+    <hr class="bold-line" />
     <div class="q-pa-md q-gutter-sm" style="text-align:center">
       <q-btn color="primary" label="シュート練習多め" @click="handleSend('シュート練習多め')" />
       <q-btn color="secondary" label="パス練習多め" @click="handleSend('パス練習多め')" />
@@ -30,7 +33,9 @@ export default {
     const $q = useQuasar()
 
     const handleSend = async (userInput) => {
-      $q.loading.show()
+      $q.loading.show({
+        message: 'ただいまAIが練習メニューを作成中です。'
+      })
       messages.value
       if (userInput === '') return;
 
@@ -62,5 +67,18 @@ export default {
 
 .q-card {
   background-color: #f9f9f9;
+}
+
+.bold-line {
+  height: 3px;
+  background-color: #0072bc;
+  border: none;
+  margin: 20px 0;
+}
+
+.step-title {
+  color: #1976D2;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 </style>
