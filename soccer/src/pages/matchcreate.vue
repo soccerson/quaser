@@ -149,6 +149,12 @@ td {
   margin: 20px 0;
 }
 
+.step-title {
+  color: #1976d2;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 .job-selection-container {
   max-width: 1200px;
   margin: 0 auto;
