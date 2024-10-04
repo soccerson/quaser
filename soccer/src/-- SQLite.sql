@@ -23,3 +23,7 @@ VALUES
     ('川崎市立橘高校', '神奈川県川崎市中原区中丸子562', 18, 0.48, 0.8, 0.5),
     ('茗溪学園高校', '茨城県つくば市稲荷前1-1', 19, 0.45, 0.85, 0.4),
     ('専修大学附属高校', '東京都杉並区和泉4-4-1', 20, 0.42, 0.9, 0.3);
+
+
+CREATE TABLE 求人データ(jobDescription TEXT,numpeople INTEGER,workLocation TEXT, budget REAL,
+paymentType TEXT, deadline TEXT, benefits REAL);
