@@ -10,7 +10,7 @@
     <div class="q-mt-md">
       <div v-for="(msg, index) in messages" :key="index">
         <q-card class="q-mb-sm">
-          <q-card-section>
+          <q-card-section style="white-space:pre-wrap; word-wrap:break-word;">
             {{ msg }}
           </q-card-section>
         </q-card>
