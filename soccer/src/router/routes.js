@@ -11,7 +11,10 @@ const routes = [
         path: "create-recruitment",
         component: () => import("pages/CreateRecruitment.vue"),
       },
-      { path: "", component: () => import("pages/CreateMatch.vue") },
+      {
+        path: "create-match",
+        component: () => import("pages/CreateMatch.vue"),
+      },
     ],
   },
 
