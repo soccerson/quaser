@@ -1,12 +1,12 @@
 <template>
   <q-page padding>
-    <q-input
-      v-model="userInput"
-      placeholder="Ask something..."
-      @keyup.enter="handleSend"
-      class="q-mb-md"
-    />
-    <q-btn label="Send" @click="handleSend" color="primary" />
+    <div class="q-pa-md q-gutter-sm" style="text-align:center">
+      <q-btn color="primary" label="シュート練習多め" @click="handleSend('シュート練習多め')" />
+      <q-btn color="secondary" label="パス練習多め" @click="handleSend('パス練習多め')" />
+      <q-btn color="amber" glossy label="ディフェンス練習多め" @click="handleSend('ディフェンス練習多め')" />
+      <q-btn color="deep-orange" label="バランスよく" @click="handleSend('バランスよく')" />
+      <!-- <q-btn color="deep-orange" glossy label="室内練習" @click="handleSend('室内練習')" /> -->
+    </div>
     <div class="q-mt-md">
       <div v-for="(msg, index) in messages" :key="index">
         <q-card class="q-mb-sm">
@@ -22,16 +22,19 @@
 <script>
 import { ref } from 'vue';
 import { sendMessage } from 'src/services/openai';
+import { useQuasar } from 'quasar'
 
 export default {
   setup() {
-    const userInput = ref('');
     const messages = ref([]);
+    const $q = useQuasar()
 
-    const handleSend = async () => {
-      if (userInput.value.trim() === '') return;
+    const handleSend = async (userInput) => {
+      $q.loading.show()
+      messages.value
+      if (userInput === '') return;
 
-      const userMessage = userInput.value;
+      const userMessage = userInput;
       console.log(userMessage);
       messages.value.push(`You: ${userMessage}`);
       // API 呼び出し
@@ -41,12 +44,10 @@ export default {
       } catch (error) {
         messages.value.push('Error: Failed to get response from ChatGPT');
       }
-
-      userInput.value = '';  // 入力をリセット
+      $q.loading.hide()
     };
 
     return {
-      userInput,
       messages,
       handleSend
     };
@@ -56,7 +57,6 @@ export default {
 
 <style scoped>
 .q-page {
-  max-width: 600px;
   margin: auto;
 }
 
