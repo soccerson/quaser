@@ -82,11 +82,26 @@ export default {
   },
 
   //tableにおすすめ対戦相手を表示
+  
+  created() {
+    // ページが作成されたときにローカルストレージからデータを読み込む
+    this.jobs = JSON.parse(localStorage.getItem("jobs") || "[]");
+  },
   data() {
     return {
-      locations: [
-        { schoolName: "A学校", schoolAdress: "A市" },
-        { schoolName: "B学校", schoolAdress: "B市" },
+      jobs: [],
+      columns: [
+        {
+          name: "title",
+          required: true,
+          label: "依頼タイトル",
+          align: "left",
+          field: "title",
+        },
+        { name: "format", label: "形式", align: "left", field: "format" },
+        { name: "status", label: "ステータス", align: "left", field: "status" },
+        { name: "needs", label: "対応が必要", align: "left", field: "needs" },
+        { name: "actions", label: "編集・コピー・削除など", align: "left" },
       ],
     };
   },
