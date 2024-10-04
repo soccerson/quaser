@@ -4,7 +4,7 @@
     <div id="app">
       <q-input
         v-model="userInput"
-        placeholder="Ask something..."
+        placeholder="例：シュート率を上げたい、移動に80分以内"
         @keyup.enter="handleSend"
         class="q-mb-md"
       />
