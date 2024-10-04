@@ -106,7 +106,6 @@
           </q-card-section>
         </q-card>
       </div>
-      </div>
       <!-- STEP 3 -->
       <div>
         <h5 class="step-title">STEP 3 予算と支払い方法を決めましょう</h5>

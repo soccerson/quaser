@@ -47,7 +47,7 @@ import { ref } from 'vue';
 import { sendMessage } from 'src/services/openai';
 export default {
   name: "SimpleMarkerMap",
-  
+
   //chatgptの動作
   setup() {
     const userInput = ref('');
