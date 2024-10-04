@@ -38,6 +38,15 @@
       </table>
     </div>
     <div id="map"></div>
+    <!----- 表の表示 ----->
+    <div>
+      <table>
+        <tr v-for="item in items" :key="item.id">
+          <td>{{ item.column1 }}</td>
+          <td>{{ item.column2 }}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </q-page>
 </template>
@@ -45,6 +54,7 @@
 <script>
 import { ref } from 'vue';
 import { sendMessage } from 'src/services/openai';
+import 
 export default {
   name: "SimpleMarkerMap",
   
@@ -81,8 +91,8 @@ export default {
   data(){
     return{
       locations:[
-        {schoolName: "A学校", schoolAdress:"A市"},
-        {schoolName: "B学校", schoolAdress:"B市"}
+        {schoolName: "A学校", schoolAdress:"A市", lat: 35.6895, lng: 139.6917},
+        {schoolName: "B学校", schoolAdress:"B市", lat: 34.0522, lng: -118.2437}
       ]
     };
   },
@@ -99,17 +109,14 @@ export default {
         mapId: "DEMO_MAP_ID",
       });
 
-      // Add markers
-      new google.maps.marker.AdvancedMarkerElement({
-        position: { lat: 40.12150192260742, lng: -100.45039367675781 },
-        map,
-        title: "My location",
-      });
+        // Add markers
+        this.locations.forEach(location => {
+          new google.maps.marker.AdvancedMarkerElement({
+          position: { lat: location.lat, lng: location.lng },
+          map,
+          title: location.schoolName,
 
-      new google.maps.marker.AdvancedMarkerElement({
-        position: { lat: 58.2728981, lng: -161.7464394 },
-        map,
-        title: "My location",
+        })
       });
     },
   }
