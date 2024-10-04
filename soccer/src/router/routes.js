@@ -11,6 +11,8 @@ const routes = [
         path: "create-recruitment",
         component: () => import("pages/CreateRecruitment.vue"),
       },
+      { path: "confirm", component: () => import("pages/FormConfirmPage.vue") },
+      { path: "ListPage", component: () => import("pages/ListPage.vue") },
     ],
   },
 

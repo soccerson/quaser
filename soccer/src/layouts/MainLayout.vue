@@ -31,7 +31,7 @@
                 <q-btn flat label="マイページ" />
                 <q-btn flat label="対戦探し" />
                 <RouterButton to="/create-recruitment" label="募集作成" />
-                <q-btn flat label="求人依頼" />
+                <RouterButton to="/ListPage" label="仕事管理" />
                 <q-btn flat label="メッセージ" />
               </div>
               <div class="right-label">
