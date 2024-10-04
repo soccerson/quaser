@@ -1,6 +1,8 @@
 <template>
   <q-page padding>
     <h4 class="test">対戦相手を探しましょう！</h4>
+    <h5 class="step-title"></h5>
+    <hr class="bold-line" />
     <div id="app">
       <q-input
         v-model="userInput"
