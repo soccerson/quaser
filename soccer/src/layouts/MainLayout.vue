@@ -30,13 +30,13 @@
               <div class="left-labels">
                 <!-- <q-btn flat label="マイページ" /> -->
                 <q-btn flat to="/create_match" label="対戦探し" />
-                <q-btn to="/create-recruitment" flat label="募集作成" />
-                <q-btn flat to="/" label="求人依頼" />
                 <q-btn
                   to="create-practice-menu"
                   flat
                   label="練習メニュー作成"
                 />
+                <q-btn to="/create-recruitment" flat label="募集作成" />
+                <!--<q-btn flat to="/" label="求人依頼" />-->
               </div>
               <div class="right-label">
                 <q-btn flat icon="swap_horiz" label="ワーカーに切り替える" />
