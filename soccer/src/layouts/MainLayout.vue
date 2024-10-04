@@ -120,6 +120,7 @@ export default {
 .app-name {
   margin-left: 40px;
   height: 50px;
+  color: #198dda;
 }
 .custom-header {
   background-color: #ffffff; /* ヘッダーの背景色 */
