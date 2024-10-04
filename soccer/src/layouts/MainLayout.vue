@@ -32,7 +32,11 @@
                 <q-btn flat to="/create_match" label="対戦探し" />
                 <q-btn to="/create-recruitment" flat label="募集作成" />
                 <q-btn flat to="/" label="求人依頼" />
-                <q-btn to="create-practice-menu" flat label="練習メニュー作成" />
+                <q-btn
+                  to="create-practice-menu"
+                  flat
+                  label="練習メニュー作成"
+                />
               </div>
               <div class="right-label">
                 <q-btn flat icon="swap_horiz" label="ワーカーに切り替える" />
@@ -115,6 +119,7 @@ export default {
 <style scoped>
 .app-name {
   margin-left: 40px;
+  height: 50px;
 }
 .custom-header {
   background-color: #ffffff; /* ヘッダーの背景色 */
