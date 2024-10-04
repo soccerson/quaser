@@ -45,14 +45,14 @@
                 />
                 <q-btn
                   flat
-                  to="/create-practice-menu"
-                  label="練習メニュー作成"
+                  to="/create-recruitment"
+                  label="募集作成"
                   class="menu-btn"
                 />
                 <q-btn
                   flat
-                  to="/create-recruitment"
-                  label="募集作成"
+                  to="/create-practice-menu"
+                  label="練習メニュー作成"
                   class="menu-btn"
                 />
               </div>
