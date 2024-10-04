@@ -29,10 +29,10 @@
             <q-toolbar>
               <div class="left-labels">
                 <q-btn flat label="マイページ" />
-                <q-btn flat label="対戦探し" />
+                <q-btn flat to="/create_match" label="対戦探し" />
                 <RouterButton to="/create-recruitment" label="募集作成" />
-                <RouterButton to="/ListPage" label="仕事管理" />
-                <q-btn flat label="メッセージ" />
+                <q-btn flat to="/" label="求人依頼" />
+                <q-btn to="create-practice-menu" flat label="練習メニュー作成" />
               </div>
               <div class="right-label">
                 <q-btn flat icon="swap_horiz" label="ワーカーに切り替える" />

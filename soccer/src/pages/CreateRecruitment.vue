@@ -106,7 +106,7 @@
           </q-card-section>
         </q-card>
       </div>
-
+      </div>
       <!-- STEP 3 -->
       <div>
         <h5 class="step-title">STEP 3 予算と支払い方法を決めましょう</h5>
@@ -187,7 +187,6 @@
     </div>
   </q-page>
 </template>
-
 <script>
 export default {
   name: "ConfirmButton",
@@ -244,7 +243,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .bold-line {
   height: 3px;
@@ -257,7 +255,7 @@ export default {
   margin: 0 auto;
 }
 .step-title {
-  color: #1976d2;
+  color: #1976D2;
   font-weight: bold;
   margin-bottom: 20px;
 }

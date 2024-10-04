@@ -13,6 +13,14 @@ const routes = [
       },
       { path: "confirm", component: () => import("pages/FormConfirmPage.vue") },
       { path: "ListPage", component: () => import("pages/ListPage.vue") },
+      {
+        path:"create_match",
+        component: () => import("pages/matchcreate.vue"),
+      },
+      {
+        path: "create-practice-menu",
+        component: () => import("pages/CreatePracticeMenu.vue"),
+      }
     ],
   },
 
