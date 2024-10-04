@@ -122,6 +122,7 @@ export default {
   height: 50px;
   color: #198dda;
   font-size: 40px;
+  align-items: center;
 }
 .custom-header {
   background-color: #ffffff; /* ヘッダーの背景色 */
