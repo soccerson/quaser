@@ -6,16 +6,23 @@
         <div v-if="!isLoggedIn">
           <div>
             <q-toolbar>
-              <q-toolbar-title class="app-name">
-                <!-- <img src="@/assets/logo.png" alt="Logo" class="logo" /> -->
-                サカいく
-              </q-toolbar-title>
-              <RouterButton to="/login" label="すべての仕事" />
-              <RouterButton to="/contact" label="お問い合わせ" />
-              <q-btn flat label="ログアウト" @click="logout()" />
+              <!-- サカいくタイトル -->
+              <q-toolbar-title class="app-name"> サカいく </q-toolbar-title>
+              <!-- ナビゲーションボタン -->
+              <RouterButton to="/login" label="すべての仕事" class="nav-btn" />
+              <RouterButton
+                to="/contact"
+                label="お問い合わせ"
+                class="nav-btn"
+              />
+              <q-btn
+                flat
+                label="ログアウト"
+                @click="logout()"
+                class="nav-btn"
+              />
               <q-space />
               <div class="profile-info">
-                <!-- <span class="profile-name">{{ userName }}さん</span> -->
                 <span class="profile-name">Kさん</span>
               </div>
               <q-btn flat icon="mail" />
@@ -25,18 +32,29 @@
               <q-btn flat icon="help_outline" />
             </q-toolbar>
           </div>
+
+          <!-- 2段目のツールバー（メニュー部分） -->
           <div class="second-toolbar">
             <q-toolbar>
               <div class="left-labels">
-                <!-- <q-btn flat label="マイページ" /> -->
-                <q-btn flat to="/create_match" label="対戦探し" />
                 <q-btn
-                  to="create-practice-menu"
                   flat
-                  label="練習メニュー作成"
+                  to="/create_match"
+                  label="対戦相手探し"
+                  class="menu-btn"
                 />
-                <q-btn to="/create-recruitment" flat label="募集作成" />
-                <!--<q-btn flat to="/" label="求人依頼" />-->
+                <q-btn
+                  flat
+                  to="/create-practice-menu"
+                  label="練習メニュー作成"
+                  class="menu-btn"
+                />
+                <q-btn
+                  flat
+                  to="/create-recruitment"
+                  label="募集作成"
+                  class="menu-btn"
+                />
               </div>
               <div class="right-label">
                 <q-btn flat icon="swap_horiz" label="ワーカーに切り替える" />
@@ -49,22 +67,24 @@
         <div v-else>
           <div>
             <q-toolbar>
-              <q-toolbar-title class="app-name">
-                <!-- <img src="@/assets/logo.png" alt="Logo" class="logo" /> -->
-                サカいく
-              </q-toolbar-title>
-              <RouterButton to="/login" label="サカいくとは" />
-              <RouterButton to="/contact" label="お問い合わせ" />
-              <RouterButton to="/login" label="ログイン" />
-              <RouterButton to="/signin" label="ログイン" color="orange" />
+              <q-toolbar-title class="app-name"> サカいく </q-toolbar-title>
+              <RouterButton to="/login" label="サカいくとは" class="nav-btn" />
+              <RouterButton
+                to="/contact"
+                label="お問い合わせ"
+                class="nav-btn"
+              />
+              <RouterButton to="/login" label="ログイン" class="nav-btn" />
+              <RouterButton to="/signin" label="新規登録" class="nav-btn" />
             </q-toolbar>
           </div>
         </div>
       </div>
     </q-header>
+
+    <!-- メインコンテンツ -->
     <q-page-container>
       <router-view />
-      <!-- ここに各ページのコンテンツが挿入される -->
     </q-page-container>
   </q-layout>
 </template>
@@ -82,34 +102,27 @@ export default {
   },
   methods: {
     goToLogin() {
-      // ログインページに遷移する処理
       this.$router.push("/login");
     },
     goToSignup() {
-      // サインアップページに遷移する処理
       this.$router.push("/signup");
     },
     logout() {
-      // ログアウト処理（ここでは単にログイン状態をfalseに）
       this.isLoggedIn = false;
     },
     login() {
-      // ログイン処理（ログイン成功後にisLoggedInをtrueに）
       this.isLoggedIn = true;
     },
     goToCreste() {
-      // 求人作成
       this.$router.push("/create");
     },
   },
   created() {
-    // ここで仮にログイン状態を確認する（実際にはサーバーからの認証情報などを使用）
     const savedLoginStatus = localStorage.getItem("isLoggedIn");
     this.isLoggedIn = savedLoginStatus === "true";
   },
   watch: {
     isLoggedIn(newValue) {
-      // ログイン状態を保存（例：localStorage）
       localStorage.setItem("isLoggedIn", newValue);
     },
   },
@@ -117,47 +130,79 @@ export default {
 </script>
 
 <style scoped>
-.app-name {
-  margin-left: 40px;
-  height: 50px;
-  color: #198dda;
-  font-size: 30px;
-  align-items: middle;
-}
-.custom-header {
-  background-color: #ffffff; /* ヘッダーの背景色 */
-  color: #000; /* テキスト色 */
-}
-
-.second-toolbar {
-  background-color: #198dda; /* 2段目のツールバーの背景色 */
-  color: #ffffff; /* テキスト色 */
-  width: 100vw; /* ツールバーを画面幅いっぱいに設定 */
-  max-width: 100%; /* 最大幅を画面いっぱいに設定 */
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.left-labels {
-  display: flex;
-  gap: 20px; /*ラベル間のスペースを調整 */
-}
-
-.right-label {
-  margin-left: auto;
-}
-
-.q-btn {
-  font-weight: bold; /* ボタンのフォントを強調 */
-}
-
+/* サカいくのタイトルを目立たせる */
 .q-toolbar-title {
-  font-size: 20px; /* タイトルのフォントサイズ調整 */
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  background: #1565c0;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border: 8px solid #0d47a1;
+}
+
+/* ナビゲーションボタン（すべての仕事、お問い合わせ、ログアウト） */
+.nav-btn {
+  background-color: transparent;
+  color: white;
+  margin-right: 20px;
+  padding: 10px 20px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: #42a5f5; /* ホバー時の色 */
+  color: white;
+  transform: translateY(-2px); /* 軽い浮き上がり効果 */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .q-space {
-  flex-grow: 1; /* 右側のアイコンボタンを右端に配置 */
+  flex-grow: 1;
+}
+
+/* ページ全体の青系統で統一した背景 */
+body {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+/* ホバー時に文字が中央揃えになる */
+.nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-btn {
+  background-color: #42a5f5;
+  color: white;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: bold;
+  margin: 0 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-btn:hover {
+  background-color: #64b5f6;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.second-toolbar {
+  background-color: #1e88e5;
+  color: white;
+  padding: 10px 0;
+}
+
+.profile-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
 }
 </style>
