@@ -1,45 +1,47 @@
 <template>
   <q-page padding>
-    <h4 class="test">対戦相手を探しましょう！</h4>
-    <h5 class="step-title">対戦したい相手の特徴を入力してください</h5>
-    <hr class="bold-line" />
-    <div id="app">
-      <q-input
-        v-model="userInput"
-        placeholder="例：シュート率を上げたい、移動に80分以内"
-        @keyup.enter="handleSend"
-        class="q-mb-md"
-      />
-      <q-btn label="Send" @click="handleSend" color="primary" />
-      <div class="q-mt-md">
-        <div v-for="(msg, index) in messages" :key="index">
-          <q-card class="q-mb-sm">
-            <q-card-section>
-              {{ msg }}
-            </q-card-section>
-          </q-card>
+    <div class="job-selection-container">
+      <h4 class="test">対戦相手を探しましょう！</h4>
+      <h5 class="step-title">対戦したい相手の特徴を入力してください</h5>
+      <hr class="bold-line" />
+      <div id="app">
+        <q-input
+          v-model="userInput"
+          placeholder="例：シュート率を上げたい、移動に80分以内"
+          @keyup.enter="handleSend"
+          class="q-mb-md"
+        />
+        <q-btn label="Send" @click="handleSend" color="primary" />
+        <div class="q-mt-md">
+          <div v-for="(msg, index) in messages" :key="index">
+            <q-card class="q-mb-sm">
+              <q-card-section>
+                {{ msg }}
+              </q-card-section>
+            </q-card>
+          </div>
         </div>
-      </div>
 
-      <!----- 表の表示 ----->
-      <div id="list">
-        <h5 class="column-title">おすすめ対戦相手</h5>
-        <table>
-          <thead>
-            <tr>
-              <th>学校名</th>
-              <th>住所</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(location, index) in locations" :key="index">
-              <td>{{ location.schoolName }}</td>
-              <td>{{ location.schoolAdress }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <!----- 表の表示 ----->
+        <div id="list">
+          <h5 class="column-title">おすすめ対戦相手</h5>
+          <table>
+            <thead>
+              <tr>
+                <th>学校名</th>
+                <th>住所</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(location, index) in locations" :key="index">
+                <td>{{ location.schoolName }}</td>
+                <td>{{ location.schoolAdress }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="map"></div>
       </div>
-      <div id="map"></div>
     </div>
   </q-page>
 </template>
@@ -137,6 +139,18 @@ td {
 #map {
   height: 50vh; /* Fill the screen */
   width: 80%;
+  margin: 0 auto;
+}
+
+.bold-line {
+  height: 3px;
+  background-color: #0072bc;
+  border: none;
+  margin: 20px 0;
+}
+
+.job-selection-container {
+  max-width: 1200px;
   margin: 0 auto;
 }
 
