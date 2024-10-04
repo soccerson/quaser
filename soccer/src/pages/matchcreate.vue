@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
     <div class="job-selection-container">
-      <h4 class="test">対戦相手を探しましょう！</h4>
+      <h4>対戦相手を探しましょう！</h4>
       <h5 class="step-title">対戦したい相手の特徴を入力してください</h5>
       <hr class="bold-line" />
       <div id="app">
@@ -164,9 +164,5 @@ gmp-map {
   color: #1976d2;
   font-weight: bold;
   margin-bottom: 20px;
-}
-.test {
-  max-width: 1200px;
-  margin: 0 auto;
 }
 </style>
