@@ -14,7 +14,6 @@ const { configure } = require('quasar/wrappers');
 // quasar.config.js
 require('dotenv').config();
 
-
 module.exports = configure(function (/* ctx */) {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature

@@ -2,7 +2,6 @@ const apiKey = process.env.OPENAI_API;
 import axios from 'axios';
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 export async function sendMessage(message) {
-    console.log(apiKey);
   try {
     const response = await axios.post(
       apiUrl,
@@ -23,4 +22,3 @@ export async function sendMessage(message) {
     console.error('Error calling OpenAI API:', error);
     throw error;
   }
-}

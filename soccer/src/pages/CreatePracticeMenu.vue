@@ -55,12 +55,12 @@ export default {
 </script>
 
 <style scoped>
-    .q-page {
-    max-width: 600px;
-    margin: auto;
-    }
+.q-page {
+  max-width: 600px;
+  margin: auto;
+}
 
-    .q-card {
-    background-color: #f9f9f9;
-    }
+.q-card {
+  background-color: #f9f9f9;
+}
 </style>

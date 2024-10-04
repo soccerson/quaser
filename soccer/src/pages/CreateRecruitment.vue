@@ -198,6 +198,16 @@
         class="q-my-md"
       />
     </div>
+
+    <div>
+      <!-- 確認ボタン -->
+      <q-btn
+        label="確認"
+        color="primary"
+        @click="handleConfirm"
+        class="q-my-md"
+      />
+    </div>
   </q-page>
 </template>
 <script>
@@ -244,6 +254,7 @@ export default {
   border: none; /* デフォルトのボーダーを消す */
   margin: 20px 0; /* 上下の余白を調整 */
 }
+
 .job-selection-container {
   max-width: 1200px;
   margin: 0 auto;
